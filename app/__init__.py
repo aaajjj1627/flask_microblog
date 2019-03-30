@@ -15,5 +15,5 @@ migrate = Migrate(app,db)#迁移引擎对象
 login = LoginManager(app)#用于管理用户登录状态，以便做到诸如用户可登录到应用程序
 login.login_view = 'login'#login'值是登录视图函数（endpoint）名，换句话说该名称可用于url_for()函数的参数并返回对应的URL。'
 
-from app import routes,models
+from app import routes,models,errors
 
