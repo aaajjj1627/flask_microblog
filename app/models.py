@@ -75,6 +75,8 @@ class Post(db.Model):
         return '<Post {}'.format(self.body)
 
 
+
+
 '''
 db.relationship的第一个参数 表示关系“多”的模型类。如果模型稍后在模块中定义，则此参数可作为带有类名的字符串提供。
                  第二个参数backref定义将添加到“多”类的对象的字段的名称，该类指向“一”对象。这将添加一个post.author表达式，它将返回给定帖子的用户。
