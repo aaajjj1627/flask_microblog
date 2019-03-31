@@ -1,27 +1,12 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{# Flask-Bootstrap有一个很棒的工作是渲染表单。Flask-Bootstrap不用逐一设置表单字段的样式，
+而是附带一个宏（macro），它接受一个Flask-WTF表单对象作为参数，并使用Bootstrap样式呈现完整的表单 #}
 
-{% block content %}
+{% block app_content %}
 	<h1>Edit Profile</h1>
-	<form action="", method="post">
-		{{ form.hidden_tag() }}
-		<p>
-			{{ form.username.label }}<br>
-			{{ form.username(size=32) }}<br>
-			{% for error in form.username.errors %}
-				<span style="color:red;">[{{ error }}]</span>
-			{% endfor %}
-		</p>
-
-		<p>
-			{{ form.about_me.label }}<br>
-			{{ form.about_me(cols=50, rows=4) }}<br>
-			{% for error in form.about_me.errors %}
-				<span style="color:red;">[{{ error }}]</span>
-			{% endfor %}
-		</p>
-		<p>
-			{{ form.submit() }}
-		</p>
-	</form>
-		}
-{% endblock %}
+	<div class="row">
+		<div class="col-md-4">
+			{{ wtf.quick_form(form) }}
+		</div>
+	</div>

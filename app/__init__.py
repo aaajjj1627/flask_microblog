@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy#从包中导入类
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_bootstrap import Bootstrap
 from logging.handlers import RotatingFileHandler, SMTPHandler
 import logging
 
@@ -20,6 +21,7 @@ login = LoginManager(app)#用于管理用户登录状态，以便做到诸如用
 login.login_view = 'login'#login'值是登录视图函数（endpoint）名，换句话说该名称可用于url_for()函数的参数并返回对应的URL。'
 
 mail = Mail(app)
+bootstrap = Bootstrap(app)
 from app import routes,models,errors
 
 if not app.debug:
