@@ -33,10 +33,33 @@ class EditProfileForm(FlaskForm):
 	about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
 	submit = SubmitField('Submit')
 
+	# 验证用户名
+	def __init__(self, original_username, *args, **kwargs):
+		super(EditProfileForm, self).__init__(*args, **kwargs)
+		self.original_username = original_username
+
+	def validate_username(self, username):
+		if username.data != self.original_username:
+			user = User.query.filter_by(username=self.username.data).first()
+			if user is not None:
+				raise ValidationError('Please use a different username.')
+
+
 class PostForm(FlaskForm):
     post = TextAreaField('Say something', validators=[
         DataRequired(), Length(min=1, max=140)])
     submit = SubmitField('Submit')
+
+#当用户点击链接时，会出现一个新的Web表单，要求用户输入注册的电子邮件地址，以启动密码重置过程。
+class ResetPasswordRequestForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Request Password Reset')
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField(
+        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Request Password Reset')
 
 '''
 代码中与验证相关的几处相当有趣。首先，对于email字段，我在DataRequired之后添加了第二个验证器，名为Email。 这个来自WTForms的另一个验证器将确保用户在此字段中键入的内容与电子邮件地址的结构相匹配。
