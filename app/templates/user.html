@@ -5,7 +5,7 @@
 		<tr>
 			<td width="256px"><img src="{{ user.avatar(256) }}"></td>
 			<td>
-				<h1>{{ _(' %(username)s!', username=current_user.username) }}</h1>
+				<h1>{{ _(' %(username)s!', username=user.username) }}</h1>
 				{% if user.about_me %}
 					<p>{{ user.about_me }}</p>
 				{% endif %}

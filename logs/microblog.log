@@ -1,4 +1,4 @@
-2019-04-01 14:39:24,403 ERROR: Exception on /register [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
+2019-04-01 15:40:37,432 ERROR: Exception on /unfollow/aaajjj1627 [GET] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -10,51 +10,12 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/python/workspace/microblog/app/routes.py", line 92, in register
-    db.session.commit()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1026, in commit
-    self.transaction.commit()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 493, in commit
-    self._prepare_impl()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 472, in _prepare_impl
-    self.session.flush()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2451, in flush
-    self._flush(objects)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2589, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2549, in _flush
-    flush_context.execute()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
-    uow,
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
-    insert,
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 1120, in _emit_insert_statements
-    statement, params
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 383, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.email
-[SQL: INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?)]
-[parameters: (u'\u5c0f\u9f99\u5973', u'1234@qq.com', 'pbkdf2:sha256:50000$uvHtSO7S$1692f0ed0221339e8f26ce74d3f53de414404437d7d303666bd5a1cfae08f155', None, '2019-04-01 06:39:24.402753')]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-2019-04-01 15:06:05,431 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:68]
-2019-04-01 15:06:14,189 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:68]
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/python/workspace/microblog/app/routes.py", line 175, in unfollow
+    flash(_('You are not following %(username).',username=username))
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_babel/__init__.py", line 556, in gettext
+    return s if not variables else s % variables
+ValueError: unsupported format character '?' (0xff01) at index 16
+2019-04-01 15:44:05,750 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:68]
+2019-04-01 15:45:31,034 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:68]
