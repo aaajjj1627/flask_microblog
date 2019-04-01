@@ -4,7 +4,7 @@
 而是附带一个宏（macro），它接受一个Flask-WTF表单对象作为参数，并使用Bootstrap样式呈现完整的表单 #}
 
 {% block app_content %}
-	<h1>Edit Profile</h1>
+	<h1>{{ _('Edit Profile')}}</h1>
 	<div class="row">
 		<div class="col-md-4">
 			{{ wtf.quick_form(form) }}
