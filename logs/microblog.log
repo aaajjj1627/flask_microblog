@@ -1,4 +1,4 @@
-2019-04-01 15:40:37,432 ERROR: Exception on /unfollow/aaajjj1627 [GET] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
+2019-04-02 15:26:16,241 ERROR: Exception on / [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,10 +12,66 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/python/workspace/microblog/app/routes.py", line 175, in unfollow
-    flash(_('You are not following %(username).',username=username))
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_babel/__init__.py", line 556, in gettext
-    return s if not variables else s % variables
-ValueError: unsupported format character '?' (0xff01) at index 16
-2019-04-01 15:44:05,750 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:68]
-2019-04-01 15:45:31,034 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:68]
+  File "/home/python/workspace/microblog/app/main/routes.py", line 30, in index
+    db.session.commit()
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1026, in commit
+    self.transaction.commit()
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 500, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/event/attr.py", line 259, in __call__
+    fn(*args, **kw)
+  File "/home/python/workspace/microblog/app/models.py", line 109, in after_commit
+    add_to_index(cls.__tablename__, obj)
+  File "/home/python/workspace/microblog/app/search.py", line 10, in add_to_index
+    body=payload)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 319, in index
+    _make_path(index, doc_type, id), params=params, body=body)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 181, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7f14fb3fb090>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f14fb3fb090>: Failed to establish a new connection: [Errno 111] Connection refused)
+2019-04-02 15:27:13,543 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
+2019-04-02 15:27:34,504 ERROR: Exception on /index [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/python/workspace/microblog/app/main/routes.py", line 30, in index
+    db.session.commit()
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1026, in commit
+    self.transaction.commit()
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 500, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/event/attr.py", line 259, in __call__
+    fn(*args, **kw)
+  File "/home/python/workspace/microblog/app/models.py", line 109, in after_commit
+    add_to_index(cls.__tablename__, obj)
+  File "/home/python/workspace/microblog/app/search.py", line 10, in add_to_index
+    body=payload)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 319, in index
+    _make_path(index, doc_type, id), params=params, body=body)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 181, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7fc7c8d9a2d0>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7fc7c8d9a2d0>: Failed to establish a new connection: [Errno 111] Connection refused)
+2019-04-02 15:28:33,942 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
+2019-04-02 15:34:20,275 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:83]
