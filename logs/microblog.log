@@ -1,4 +1,4 @@
-2019-04-02 15:26:16,241 ERROR: Exception on / [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
+2019-04-02 18:23:53,287 ERROR: Exception on /user/liangchaowei [GET] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,66 +12,48 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/python/workspace/microblog/app/main/routes.py", line 30, in index
-    db.session.commit()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1026, in commit
-    self.transaction.commit()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 500, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/event/attr.py", line 259, in __call__
-    fn(*args, **kw)
-  File "/home/python/workspace/microblog/app/models.py", line 109, in after_commit
-    add_to_index(cls.__tablename__, obj)
-  File "/home/python/workspace/microblog/app/search.py", line 10, in add_to_index
-    body=payload)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
-    return func(*args, params=params, **kwargs)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 319, in index
-    _make_path(index, doc_type, id), params=params, body=body)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/transport.py", line 318, in perform_request
-    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 181, in perform_request
-    raise ConnectionError('N/A', str(e), e)
-ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7f14fb3fb090>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f14fb3fb090>: Failed to establish a new connection: [Errno 111] Connection refused)
-2019-04-02 15:27:13,543 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
-2019-04-02 15:27:34,504 ERROR: Exception on /index [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/python/workspace/microblog/app/main/routes.py", line 72, in user
+    next_url=next_url, prev_url=prev_url)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/python/workspace/microblog/app/main/routes.py", line 30, in index
-    db.session.commit()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1026, in commit
-    self.transaction.commit()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 500, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/event/attr.py", line 259, in __call__
-    fn(*args, **kw)
-  File "/home/python/workspace/microblog/app/models.py", line 109, in after_commit
-    add_to_index(cls.__tablename__, obj)
-  File "/home/python/workspace/microblog/app/search.py", line 10, in add_to_index
-    body=payload)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
-    return func(*args, params=params, **kwargs)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/client/__init__.py", line 319, in index
-    _make_path(index, doc_type, id), params=params, body=body)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/transport.py", line 318, in perform_request
-    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 181, in perform_request
-    raise ConnectionError('N/A', str(e), e)
-ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7fc7c8d9a2d0>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7fc7c8d9a2d0>: Failed to establish a new connection: [Errno 111] Connection refused)
-2019-04-02 15:28:33,942 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
-2019-04-02 15:34:20,275 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:83]
+  File "/home/python/workspace/microblog/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/python/workspace/microblog/app/templates/base.html", line 1, in top-level template code
+    {% extends "bootstrap/base.html" %}
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
+    {% block content -%}
+  File "/home/python/workspace/microblog/app/templates/base.html", line 50, in block "content"
+    {% block app_content %}{% endblock %}
+  File "/home/python/workspace/microblog/app/templates/user.html", line 22, in block "app_content"
+    <p><a href="{{ url_for('main.send_message', recipient=user.username) }}">{{ _('Send private message') }}</a></p>
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'main.send_message' with values ['recipient']. Did you mean 'main.index' instead?
+2019-04-02 18:25:28,034 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:83]
+2019-04-06 18:45:35,321 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:83]
+2019-04-06 18:45:52,705 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:83]
+2019-04-06 18:45:57,218 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:83]
+2019-04-06 18:46:18,374 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:83]
+2019-04-06 18:46:23,616 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:83]
+2019-04-06 19:09:13,466 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:82]
+2019-04-06 19:20:58,434 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:82]
+2019-04-06 19:22:48,318 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:82]
+2019-04-06 19:32:39,003 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:82]

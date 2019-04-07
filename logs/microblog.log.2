@@ -1,4 +1,4 @@
-2019-04-02 12:54:14,206 ERROR: Exception on /index [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
+2019-04-02 15:11:30,053 ERROR: Exception on /index [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,18 +34,9 @@ Traceback (most recent call last):
     status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 181, in perform_request
     raise ConnectionError('N/A', str(e), e)
-ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7f927f7ad1d0>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f927f7ad1d0>: Failed to establish a new connection: [Errno 111] Connection refused)
-2019-04-02 12:56:18,002 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
-2019-04-02 12:59:56,078 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
-2019-04-02 13:00:29,250 ERROR: Exception on /index [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", l2019-04-02 14:47:10,221 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
-2019-04-02 15:00:47,186 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
-2019-04-02 15:02:17,961 ERROR: Exception on /index [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
+ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7f9388d3e390>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f9388d3e390>: Failed to establish a new connection: [Errno 111] Connection refused)
+2019-04-02 15:12:38,903 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
+2019-04-02 15:12:54,501 ERROR: Exception on /index [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -59,7 +50,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/python/workspace/microblog/app/main/routes.py", line 36, in index
+  File "/home/python/workspace/microblog/app/main/routes.py", line 30, in index
     db.session.commit()
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
     return getattr(self.registry(), name)(*args, **kwargs)
@@ -81,5 +72,23 @@ Traceback (most recent call last):
     status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
   File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/elasticsearch/connection/http_urllib3.py", line 181, in perform_request
     raise ConnectionError('N/A', str(e), e)
-ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7fc728731890>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7fc728731890>: Failed to establish a new connection: [Errno 111] Connection refused)
-2019-04-02 15:11:04,036 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]
+ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7fa2f4053e50>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7fa2f4053e50>: Failed to establish a new connection: [Errno 111] Connection refused)
+2019-04-02 15:15:28,391 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:84]
+2019-04-02 15:15:31,552 ERROR: Exception on /index [POST] [in /home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/flask_login/utils.py", line 259, in decorated_view
+    elif not current_user.is_authenticated:
+  File "/home/python/.virtualenvs/flask/local/lib/python2.7/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'User' object has no attribute 'is_authenticated'
+2019-04-02 15:25:44,524 INFO: Microblog startup [in /home/python/workspace/microblog/app/__init__.py:85]

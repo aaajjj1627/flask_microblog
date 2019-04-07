@@ -46,15 +46,14 @@ def create_app(config_class=Config):
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
 
-
-    if not app.debug and not app.testing:
+    # ...
+    if not app.debug:
         if app.config['MAIL_SERVER']:
             auth = None
             if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD']:
-                auth = (app.config['MAIL_USERNAME'],
-                        app.config['MAIL_PASSWORD'])
+                auth = (app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'])
             secure = None
-            if app.config['MAIL_USE_TLS']:
+            if app.config['MAIL_USE_SSL']:
                 secure = ()
             mail_handler = SMTPHandler(
                 mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
