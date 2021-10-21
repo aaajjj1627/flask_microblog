@@ -1,6 +1,6 @@
 3to2==1.1.1
 alembic==1.0.8
-Babel==2.6.0
+Babel==2.9.1
 blinker==1.4
 Click==7.0
 coverage==4.5.3
