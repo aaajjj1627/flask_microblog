@@ -24,7 +24,7 @@ guess-language==0.2
 guess-language-spirit==0.5.3
 itsdangerous==1.1.0
 Jinja2==2.10
-Mako==1.0.8
+Mako==1.2.2
 MarkupSafe==1.1.1
 mysqlclient==1.4.2.post1
 pbr==5.1.3
